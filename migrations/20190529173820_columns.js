@@ -3,7 +3,7 @@ exports.up = function(knex, Promise) {
     table.increments("id").primary();
     table.string("name")
     table.integer("boardId");
-    table.string("position");
+    table.string("position"); //(0,0)
     table.integer("width");
     table.integer("height");
   });

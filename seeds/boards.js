@@ -8,17 +8,12 @@ exports.seed = function(knex, Promise) {
         {
           id: 101, 
           name: 'todo doing done', 
-          accountId: 21
+          accountId: 1
         },
         {
           id: 102, 
-          name: 'doing', 
-          accountId: 21
-        },
-        {
-          id: 103, 
-          name: 'done', 
-          accountId: 21
+          name: 'yeet', 
+          accountId: 1
         }
       ]);
     });
