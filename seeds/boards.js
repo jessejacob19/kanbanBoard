@@ -1,28 +1,25 @@
 
 exports.seed = function(knex, Promise) {
   // Deletes ALL existing entries
-  return knex('table_name').del()
+  return knex('boards').del()
     .then(function () {
       // Inserts seed entries
-      return knex('table_name').insert([
+      return knex('boards').insert([
         {
-          id: 1, 
-          name: 'todo', 
-          description: 'tasks that need to be done',
+          id: 101, 
+          name: 'todo doing done', 
           accountId: 21
         },
         {
-          id: 2, 
+          id: 102, 
           name: 'doing', 
-          description: 'tasks that are being done',
           accountId: 21
         },
         {
-          id: 3, 
+          id: 103, 
           name: 'done', 
-          description: 'tasks that are done',
           accountId: 21
-        },
+        }
       ]);
     });
 };
