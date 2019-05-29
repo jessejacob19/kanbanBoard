@@ -21,10 +21,10 @@ MVP = *
 - share a board with another user (via email address)
 
 ### Tech
-  - Frontend: React/Redux, thunk
+  - Frontend: React/Redux, thunk, material-ui
   - API: superagent
   - Backend:
     - Routes: Express
     - Database: Knex 
-  - Auth: passport 
+  - Auth: json web tokens (JWT)
   - testing: jest, enzyme, supertest, nock, sinon
