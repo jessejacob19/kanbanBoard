@@ -27,14 +27,14 @@ exports.seed = function(knex, Promise) {
           position: "(0,0)"
         },
         {
-          id: 303, 
+          id: 304, 
           columnId: 202,
           title: "redux",
           description: "finished the store",
           position: "(0,1)"
         },
         {
-          id: 303, 
+          id: 305, 
           columnId: 203,
           title: "readme",
           description: "user stories and stretch goals",

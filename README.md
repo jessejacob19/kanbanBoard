@@ -19,3 +19,12 @@ MVP = *
 - edit cards name and details
 - move cards between columns *
 - share a board with another user (via email address)
+
+### Tech
+  - Frontend: React/Redux, thunk
+  - API: superagent
+  - Backend:
+    - Routes: Express
+    - Database: Knex 
+  - Auth: passport 
+  - testing: jest, enzyme, supertest, nock, sinon

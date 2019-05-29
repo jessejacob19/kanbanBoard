@@ -1,8 +1,8 @@
 import React, { Component, Fragment as F } from "react";
-import { connect } from "react-redux";
+// import { connect } from "react-redux";
 
 //IMPORT THE ACTIONS LIKE THIS
-import { fetchEmojiAction } from "../actions/emoji";
+// import { fetchEmojiAction } from "../actions/emoji";
 
 class App extends Component {
   constructor(props) {
@@ -17,20 +17,21 @@ class App extends Component {
     );
   }
 }
-function mapStateToProps(state) {
-  return state;
-}
+// function mapStateToProps(state) {
+//   return state;
+// }
 
-function mapDispatchToProps(dispatch) {
-  //HOW TO PROPERLY DISPATCH
-  return {
-    fetchEmoji: () => {
-      dispatch(fetchEmojiAction());
-    }
-  };
-}
+// function mapDispatchToProps(dispatch) {
+//   //HOW TO PROPERLY DISPATCH
+//   return {
+//     fetchEmoji: () => {
+//       dispatch(fetchEmojiAction());
+//     }
+//   };
+// }
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default App
+// connect(
+//   mapStateToProps,
+//   mapDispatchToProps
+// )(App);
