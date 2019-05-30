@@ -1,5 +1,7 @@
 import React, { Component, Fragment as F } from "react";
-// import { connect } from "react-redux";
+import { connect } from "react-redux";
+
+import Navbar from "./navbar/Navbar";
 
 //IMPORT THE ACTIONS LIKE THIS
 // import { fetchEmojiAction } from "../actions/emoji";
@@ -12,6 +14,7 @@ class App extends Component {
   render() {
     return (
       <F>
+        <Navbar/>
         <p>react is running</p>
       </F>
     );
@@ -30,7 +33,7 @@ class App extends Component {
 //   };
 // }
 
-export default App
+export default connect()(App);
 // connect(
 //   mapStateToProps,
 //   mapDispatchToProps
