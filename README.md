@@ -28,3 +28,8 @@ MVP = *
     - Database: Knex 
   - Auth: json web tokens (JWT)
   - testing: jest, enzyme, supertest, nock, sinon
+
+example checkbox ####
+- [x] Finish my changes
+- [ ] Push my commits to GitHub
+- [ ] Open a pull request
