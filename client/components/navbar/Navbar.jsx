@@ -35,6 +35,7 @@ function Navbar() {
             News
           </Typography>
           <Button color="inherit">Login</Button>
+          {}
         </Toolbar>
       </AppBar>
     </div>
