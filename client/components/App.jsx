@@ -2,7 +2,7 @@ import React, { Component, Fragment as F } from "react";
 import { connect } from "react-redux";
 
 import Navbar from "./navbar/Navbar";
-import { Route, Link, HashRouter as Router } from 'react-router-dom'
+import { Route, Link, HashRouter as Router } from "react-router-dom";
 
 //IMPORT THE ACTIONS LIKE THIS
 // import { fetchEmojiAction } from "../actions/emoji";
@@ -16,9 +16,11 @@ class App extends Component {
     return (
       <F>
         <Router>
-          <Route path="/" component={Navbar}/>
+          <Route path="/" component={Navbar} />
+          <Route path="/register" component={Register} />
+          <Route path="/signin" component={SignIn} />
         </Router>
-        <Navbar/>
+        <Navbar />
       </F>
     );
   }
