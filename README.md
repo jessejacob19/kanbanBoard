@@ -20,6 +20,7 @@ MVP = *
 - [ ] move cards between columns *
 - [ ] share a board with another user (via email address)
 - [ ] 100% test coverage
+- [ ] share boards between different accounts
 
 ### Tech
   - Frontend: React/Redux, thunk, material-ui
