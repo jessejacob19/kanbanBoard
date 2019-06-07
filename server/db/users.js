@@ -17,7 +17,7 @@ function userExists(username, db = connection) {
     .then(countData => countData[0]["count(*)"] > 0);
 }
 
-function findUserByUsername(username, db = connection) {
+function getUser(username, db = connection) {
   // SELECT * FROM users where username = ?
   return db("users")
     .where("username", username)
@@ -43,7 +43,7 @@ function createUser(user, db = connection) {
 }
 
 module.exports = {
-  findUserByUsername,
+  getUser,
   createUser,
   userExists
 };

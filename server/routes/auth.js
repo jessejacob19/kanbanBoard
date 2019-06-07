@@ -1,11 +1,13 @@
 // server/routes/auth.js
 const express = require("express");
 
-const { createUser } = require("../db/users");
+const { createUser, getUser } = require("../db/users");
 const token = require("../auth/token");
 const verifyJwt = require('express-jwt')
 
 const router = express.Router();
+
+router.use(userError)
 
 router.post("/register", register, token.issue);
 
@@ -51,6 +53,12 @@ function user(req, res) {
         message: 'An error ocurred while retrieving your user profile.'
       })
     })
+}
+
+function userError(err, req, res, next) {
+  if (err.name === 'UnauthorizedError') {
+    res.status(401).json({ok: false, message: 'Access denied.'})
+  }
 }
 
 module.exports = router;
