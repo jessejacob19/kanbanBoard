@@ -1,5 +1,6 @@
 const express = require('express')
-const emojiRoutes = require('./routes/emoji')
+
+const authRoutes = require('./routes/auth')
 
 const server = express()
 
@@ -9,7 +10,7 @@ server.use(express.json())
 // Static file serving middleware
 server.use(express.static('./public'))
 
-//Add emoji routes
-server.use('/api/emoji', emojiRoutes)
+//Add routes
+server.use('/api/v1/auth', authRoutes)
 
 module.exports = server
