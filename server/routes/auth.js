@@ -3,10 +3,15 @@ const express = require("express");
 
 const { createUser } = require("../db/users");
 const token = require("../auth/token");
+const verifyJwt = require('express-jwt')
 
 const router = express.Router();
 
 router.post("/register", register, token.issue);
+
+router.get('/user', verifyJwt({secret: process.env.JWT_SECRET}), user)
+
+
 
 function register(req, res, next) {
   const { username, password } = req.body;
@@ -14,7 +19,6 @@ function register(req, res, next) {
   createUser({ username, password })
     .then(id => {
       res.locals.userId = id;
-      // res.status(201).json({ ok: true, id });
       next();
     })
     .catch(({ message }) => {
@@ -31,6 +35,22 @@ function register(req, res, next) {
         message: "Something bad happened. We don't know why."
       });
     });
+}
+
+function user(req, res) {
+  getUser(req.user.id)
+    .then(({username}) => {
+      res.json({
+        ok: true,
+        username
+      })
+    })
+    .catch(() => {
+      res.status(500).json({
+        ok: false,
+        message: 'An error ocurred while retrieving your user profile.'
+      })
+    })
 }
 
 module.exports = router;

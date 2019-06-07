@@ -4,7 +4,7 @@ import { Route, Link, HashRouter as Router } from "react-router-dom";
 
 import Navbar from "./navbar/Navbar";
 import Register from './auth/Register'
-import SignIn from './auth/SignIn'
+import Login from './auth/Login'
 
 //IMPORT THE ACTIONS LIKE THIS
 // import { fetchEmojiAction } from "../actions/emoji";
@@ -20,8 +20,8 @@ class App extends Component {
         <Router>
           <Route path="/" component={Navbar} />
           <Route exact path="/register" component={Register} />
-          <Route exact path="/signin" component={SignIn} />
-          <Route exact path='/boards' component={BoardList} />
+          <Route exact path="/login" component={Login} />
+          {/* <Route exact path='/boards' component={BoardList} /> */}
         </Router>
       </F>
     );

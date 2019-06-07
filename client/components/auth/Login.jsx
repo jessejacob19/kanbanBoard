@@ -27,7 +27,7 @@ const useStyles = makeStyles(theme => ({
   },
   avatar: {
     margin: theme.spacing(1),
-    backgroundColor: theme.palette.secondary.main
+    backgroundColor: theme.palette.primary.main
   },
   form: {
     width: "100%", // Fix IE 11 issue.
@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default function Register() {
+export default function Login() {
   const classes = useStyles();
 
   return (
@@ -49,7 +49,7 @@ export default function Register() {
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Register
+          Login
         </Typography>
         <form className={classes.form} noValidate>
           <TextField
@@ -82,12 +82,12 @@ export default function Register() {
             // onClick={}
             className={classes.submit}
           >
-            Register
+            Login
           </Button>
           <Grid container>
             <Grid item>
-              <Link href="/#/login" variant="body2">
-                {"Already have an account? Login"}
+              <Link href="/#/register" variant="body2">
+                {"Don't have an account? Register"}
               </Link>
             </Grid>
           </Grid>
