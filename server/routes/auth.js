@@ -3,21 +3,22 @@ const express = require("express");
 
 const { createUser, getUser } = require("../db/users");
 const token = require("../auth/token");
-const verifyJwt = require('express-jwt')
+const verifyJwt = require("express-jwt");
 
 const router = express.Router();
 
-router.use(userError)
+router.use(userError);
 
 router.post("/register", register, token.issue);
 
-router.get('/user', verifyJwt({secret: process.env.JWT_SECRET}), user)
-
-
+router.get(
+  "/user", 
+  verifyJwt({ secret: process.env.JWT_SECRET }), 
+  user
+  );
 
 function register(req, res, next) {
   const { username, password } = req.body;
-  console.log(1, res.locals);
   createUser({ username, password })
     .then(id => {
       res.locals.userId = id;
@@ -40,24 +41,25 @@ function register(req, res, next) {
 }
 
 function user(req, res) {
+  console.log(res.user);
   getUser(req.user.id)
-    .then(({username}) => {
+    .then(({ username }) => {
       res.json({
         ok: true,
         username
-      })
+      });
     })
     .catch(() => {
       res.status(500).json({
         ok: false,
-        message: 'An error ocurred while retrieving your user profile.'
-      })
-    })
+        message: "An error ocurred while retrieving your user profile."
+      });
+    });
 }
 
 function userError(err, req, res, next) {
-  if (err.name === 'UnauthorizedError') {
-    res.status(401).json({ok: false, message: 'Access denied.'})
+  if (err.name === "UnauthorizedError") {
+    res.status(401).json({ ok: false, message: "Access denied." });
   }
 }
 
