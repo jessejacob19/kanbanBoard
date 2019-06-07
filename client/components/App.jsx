@@ -1,8 +1,10 @@
 import React, { Component, Fragment as F } from "react";
 import { connect } from "react-redux";
+import { Route, Link, HashRouter as Router } from "react-router-dom";
 
 import Navbar from "./navbar/Navbar";
-import { Route, Link, HashRouter as Router } from "react-router-dom";
+import Register from './auth/Register'
+import SignIn from './auth/SignIn'
 
 //IMPORT THE ACTIONS LIKE THIS
 // import { fetchEmojiAction } from "../actions/emoji";
@@ -17,29 +19,13 @@ class App extends Component {
       <F>
         <Router>
           <Route path="/" component={Navbar} />
-          <Route path="/register" component={Register} />
-          <Route path="/signin" component={SignIn} />
+          <Route exact path="/register" component={Register} />
+          <Route exact path="/signin" component={SignIn} />
+          <Route exact path='/boards' component={BoardList} />
         </Router>
-        <Navbar />
       </F>
     );
   }
 }
-// function mapStateToProps(state) {
-//   return state;
-// }
-
-// function mapDispatchToProps(dispatch) {
-//   //HOW TO PROPERLY DISPATCH
-//   return {
-//     fetchEmoji: () => {
-//       dispatch(fetchEmojiAction());
-//     }
-//   };
-// }
 
 export default connect()(App);
-// connect(
-//   mapStateToProps,
-//   mapDispatchToProps
-// )(App);
