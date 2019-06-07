@@ -1,19 +1,21 @@
 // server/routes/auth.js
 const express = require("express");
+
 const { createUser } = require("../db/users");
+const token = require("../auth/token");
 
 const router = express.Router();
 
-router.post("/register", register);
+router.post("/register", register, token.issue);
 
-function register(req, res) {
+function register(req, res, next) {
   const { username, password } = req.body;
   console.log(1, res.locals);
   createUser({ username, password })
     .then(id => {
-      res.status(201).json({ ok: true });
       res.locals.userId = id;
-      console.log(res.locals);
+      // res.status(201).json({ ok: true, id });
+      next();
     })
     .catch(({ message }) => {
       // This is vulnerable to changing databases. SQLite happens to use

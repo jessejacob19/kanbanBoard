@@ -1,10 +1,10 @@
 const jwt = require('jsonwebtoken')
 
 module.exports = {
-  issueToken
+  issue
 }
 
-function issueToken (req, res) {
+function issue (req, res) {
   res.json({
     ok: true,
     message: 'Authentication successful.',
