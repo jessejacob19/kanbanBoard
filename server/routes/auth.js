@@ -8,9 +8,13 @@ router.post("/register", register);
 
 function register(req, res) {
   const { username, password } = req.body;
-  console.log(username, password);
+  console.log(1, res.locals);
   createUser({ username, password })
-    .then(() => res.status(201).json({ ok: true }))
+    .then(id => {
+      res.status(201).json({ ok: true });
+      res.locals.userId = id;
+      console.log(res.locals);
+    })
     .catch(({ message }) => {
       // This is vulnerable to changing databases. SQLite happens to use
       // this message, but Postgres doesn't.
