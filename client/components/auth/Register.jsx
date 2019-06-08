@@ -38,9 +38,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
+function handleClick(e) {
+  console.log(e.target);
+}
+
 export default function Register() {
   const classes = useStyles();
-
+  const []
   return (
     <Container component="main" maxWidth="xs">
       <CssBaseline />
@@ -79,7 +83,7 @@ export default function Register() {
             fullWidth
             variant="contained"
             color="primary"
-            // onClick={}
+            onClick={handleClick}
             className={classes.submit}
           >
             Register

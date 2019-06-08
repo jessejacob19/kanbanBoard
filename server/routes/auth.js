@@ -7,15 +7,11 @@ const verifyJwt = require("express-jwt");
 
 const router = express.Router();
 
-router.use(userError);
-
 router.post("/register", register, token.issue);
 
-router.get(
-  "/user", 
-  verifyJwt({ secret: process.env.JWT_SECRET }), 
-  user
-  );
+router.get("/user", verifyJwt({ secret: process.env.JWT_SECRET }), user);
+
+router.use(userError);
 
 function register(req, res, next) {
   const { username, password } = req.body;
@@ -41,7 +37,6 @@ function register(req, res, next) {
 }
 
 function user(req, res) {
-  console.log(res.user);
   getUser(req.user.id)
     .then(({ username }) => {
       res.json({
